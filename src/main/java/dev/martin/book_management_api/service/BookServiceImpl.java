@@ -20,14 +20,17 @@ public class BookServiceImpl implements BookService{
     public List<Book> findAll() {
         return bookRepository.findAll();
     }
+
     @Override
     public Book save (Book book) {
         return bookRepository.save(book);
     }
+
     @Override
     public Optional<Book> findById(Long id) {
         return bookRepository.findById(id);
     }
+
     @Override
     public Optional<Book> update(Long id, Book book) {
         return bookRepository.findById(id).map(bookDB -> {
@@ -38,6 +41,7 @@ public class BookServiceImpl implements BookService{
             return bookRepository.save(bookDB);
         });
     }
+
     @Override
     public boolean delete(Long id) {
         return bookRepository.findById(id)
