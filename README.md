@@ -1,6 +1,6 @@
 # Book Management API 📚
 
-A RESTful API for managing books, developed as part of my backend learning journey with **Spring Boot**.
+A RESTful API for managing books, developed as part of my backend learning journey with **Spring Boot**, in the Spring Introduction stage.
 
 ## 🚀 Project Description
 
