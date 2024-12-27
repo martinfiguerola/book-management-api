@@ -1,77 +1,100 @@
-# Book Management API
+# Book Management API 📚
 
-## Assignment: Development of a Book Management API
+A RESTful API for managing books, developed as part of my backend learning journey with **Spring Boot**.
 
-**Role**: You are a backend developer tasked with creating a REST API for the book management system of our fictitious institution: **Universal Library**. The goal is to develop a simple, efficient, and well-documented API using **Spring Boot**, **Spring Data JPA**, and **MySQL**.
+## 🚀 Project Description
 
-**Scope of the Project**: The API should manage a catalog of books with basic CRUD operations. It should not include relationships between entities or additional features like authentication or security.
+This project provides a basic book management system that allows CRUD operations (create, read, update, delete) on a catalog. It serves as a practical exercise to apply fundamental backend development concepts using the **Spring Boot** framework.
 
----
-
-## Project Requirements
-
-### 1. Mandatory Features
-Your API must support the following operations:
-
-1. **Add a New Book**
-    - **Endpoint:** `POST /api/books`
-    - **Description:** Allow users to add books to the catalog.
-    - **Required Book Fields:**
-        - `id` (auto-generated)
-        - `title` (maximum 255 characters)
-        - `author` (maximum 255 characters)
-        - `publicationYear` (integer)
-        - `price` (decimal number)
-
-2. **Retrieve All Books**
-    - **Endpoint:** `GET /api/books`
-    - **Description:** Returns a list of all registered books.
-
-3. **Retrieve a Book by ID**
-    - **Endpoint:** `GET /api/books/{id}`
-    - **Description:** Returns details of a specific book by its `id`.
-
-4. **Update Book Details**
-    - **Endpoint:** `PUT /api/books/{id}`
-    - **Description:** Allows updating the data of a specific book.
-
-5. **Delete a Book**
-    - **Endpoint:** `DELETE /api/books/{id}`
-    - **Description:** Deletes a specific book from the catalog.
+### Key Features:
+- **Create Books:** Add a new book to the system with details such as title, author, publication year, and price.
+- **List Books:** Retrieve all stored books or search for one by its ID.
+- **Update Books:** Modify existing book information.
+- **Delete Books:** Remove a book from the system.
 
 ---
 
-### 2. Technical Requirements
-- Use **Spring Boot** for the API's architecture.
-- Mandatory connection to a **MySQL** database.
-- Implement operations using **Spring Data JPA**, leveraging a standard repository (`JpaRepository`).
-- Do not use relationships between tables.
-- Provide a detailed `README.md` file, including:
-    - Instructions for setting up the database and running the application.
-    - Examples of typical requests and responses for each endpoint.
+## 🛠️ Technologies and Tools
+
+- **Language:** Java 17+
+- **Framework:** Spring Boot
+- **Key Dependencies:**
+  - Spring Web
+  - Spring Data JPA
+  - MySQL database for development/test
+  - Lombok to reduce boilerplate code
 
 ---
 
-## Technical Details
+## 📋 Prerequisites
 
-### Book Model (`Book`)
-The model should have the following attributes:
-- **id**: Primary key, auto-generated (`Long`)
-- **title**: Book title (`String`)
-- **author**: Book author (`String`)
-- **publicationYear**: Year of publication (`int`)
-- **price**: Book price (`double`)
+Before running the application, ensure you have the following installed:
 
-### MySQL Database
-- **Database name:** `library_db`
-- **Table:** `books`
+- Java 17 or higher
+- Maven 3.8 or higher
 
-**Suggested schema for the table:**
-```sql
-CREATE TABLE books (
-    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    author VARCHAR(255) NOT NULL,
-    publication_year INT NOT NULL,
-    price DOUBLE NOT NULL
-);
+---
+
+## 🔧 Project Setup
+
+Follow these steps to run the application locally:
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/martinfiguerola/book-management-api.git
+   cd book-management-api
+   ```
+
+2. Build the project with Maven:
+   ```bash
+   mvn clean install
+   ```
+
+3. Run the application:
+   ```bash
+   mvn spring-boot:run
+   ```
+
+4. Access the application at:
+   ```
+   http://localhost:8080
+   ```
+
+---
+
+## 📚 API Endpoints
+
+| Method   | Endpoint              | Description                                 |
+|----------|-----------------------|---------------------------------------------|
+| `POST`   | `/books`              | Create a new book                          |
+| `GET`    | `/books`              | List all books                             |
+| `GET`    | `/books/{id}`         | Get a book by ID                           |
+| `PUT`    | `/books/{id}`         | Update an existing book                    |
+| `DELETE` | `/books/{id}`         | Delete a book by ID                        |
+
+### Example Request for `POST /books`:
+```json
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "publicationYear": "1925",
+  "price": 10.99
+}
+```
+
+---
+
+## 🎯 What I Learned
+
+In this project, I developed key backend skills such as:
+- Setting up a Spring Boot project from scratch.
+- Using annotations like `@RestController`, `@Service`, and `@Repository` to follow the **MVC** pattern.
+- Managing data with **Spring Data JPA** and querying a MySQL database.
+
+---
+
+## 🖋️ Contributing
+
+If you'd like to contribute to this project, please open an issue or submit a pull request. All contributions are welcome.
+
+---
